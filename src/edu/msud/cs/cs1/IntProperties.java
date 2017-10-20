@@ -1,6 +1,7 @@
 package edu.msud.cs.cs1;
 
-public class IntProperties {
+
+public class IntProperties extends IntPropertiesTest {
 
     /*library to be used to find prime numbers, relative primes, greatest common denominator and least common factor, as well as Euler's
     * Totient Function
@@ -64,28 +65,31 @@ public class IntProperties {
         return commonD;
     }
 
-    public static int lcm(int n, int m) {
-        int commonM = (n * m) / gcd(n, m);
-        return commonM;
-
-    }
     public static long lcm(long n, long m) {
         long commonM = (n * m) / gcd(n, m);
         return commonM;
 
     }
 
-    public static void factors(int n) {
-        System.out.print("Factors of " + n + " are ");
-        for (int i = 1; i <= n; i++) {
-            if (n % i == 0) System.out.print(i + " ");
-        }
+    public static int lcm(int n, int m) {
+        long commonM = ((long)n * (long)m)/ gcd(n, m); //m and n must be cast to long values, in case their product exceeds the bounds for int
+        return (int)commonM;
+
     }
-    public static void factors(long n) {
-        System.out.print("Factors of " + n + " are ");
+
+    public static String factors(int n) {
+        String nums = new String();
         for (int i = 1; i <= n; i++) {
-            if (n % i == 0) System.out.print(i + " ");
+            if (n % i == 0) nums+= i + " ";
         }
+        return nums;
+    }
+    public static String factors(long n) {
+        String nums = new String();
+        for (int i = 1; i <= n; i++) {
+            if (n % i == 0) nums+= i + " ";
+        }
+        return nums;
     }
 
     public static boolean relativePrimes(int n, int m) {//determines if two numbers are relative primes
@@ -129,6 +133,8 @@ public class IntProperties {
 
 
     public static void main(String[] args) {
-        System.out.println(totient(127));
+//        System.out.println(factors(21474836));
+
+
     }
 }
